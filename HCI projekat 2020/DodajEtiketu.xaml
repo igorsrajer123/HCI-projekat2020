@@ -1,0 +1,76 @@
+﻿<Window x:Class="HCI_projekat_2020.DodajEtiketu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_projekat_2020"
+        xmlns:valid="clr-namespace:HCI_projekat_2020.Validacija"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Title="DodajEtiketu" Height="440.021" Width="526.203"
+        WindowStartupLocation="CenterScreen" Closed="Window_Closed">
+    <Grid  Name="grid123" Background="LightGray">
+        <Label Content="Dodavanje nove etikete" Height="28" HorizontalAlignment="Left" Name="label4" VerticalAlignment="Top" Width="265" FontWeight="Bold" FontStyle="Italic" Margin="24,0,0,0" />
+        <Label Content="Oznaka:" Height="28" HorizontalAlignment="Left" Margin="24,43,0,0" Name="label1" VerticalAlignment="Top" FontStyle="Italic" />
+        <Label Content="Boja:" Height="28" HorizontalAlignment="Left" Margin="25,82,0,0" Name="label2" VerticalAlignment="Top" FontStyle="Italic" />
+        <Label Content="Opis:" Height="28" HorizontalAlignment="Left" Margin="25,0,0,247" Name="label3" VerticalAlignment="Bottom" FontStyle="Italic" RenderTransformOrigin="0.472,2.143" />
+
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="82,47,0,0" Name="textBox1"  GotFocus="oznaka_GotFocus" VerticalAlignment="Top" Width="120">
+            <Binding Path="oznaka" UpdateSourceTrigger="PropertyChanged">
+                <Binding.ValidationRules>
+                    <valid:ValidacijaOznaka/>
+                    <valid:OznakaPostoji/>
+                    <valid:ValidacijaOznakaBroj/>
+                </Binding.ValidationRules>
+            </Binding>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder x:Name="textBox1"/>
+                        <TextBlock Text="{Binding [0].ErrorContent}" FontWeight="Bold" FontSize="10" Foreground="Black"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+
+        <TextBox Height="114" HorizontalAlignment="Left" Margin="82,129,0,0" Name="textBox2" GotFocus="opis_GotFocus" VerticalAlignment="Top" Width="269">
+            <Binding Path="opis" UpdateSourceTrigger="PropertyChanged">
+                <Binding.ValidationRules>
+                    <valid:ValidacijaPraznoPolje/>
+                </Binding.ValidationRules>
+            </Binding>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <DockPanel>
+                        <AdornedElementPlaceholder x:Name="textBox2"/>
+                        <TextBlock FontWeight="Bold" FontSize="15" Foreground="Black"> ! </TextBlock>
+                    </DockPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+
+        <Button Content="Izaberite boju" Height="24" HorizontalAlignment="Left" Margin="207,86,0,0" Name="button1" VerticalAlignment="Top" Width="94" Click="boja_Click"/>
+
+        <DataGrid x:Name="dataGrid" SelectionMode="Single" ItemsSource="{Binding EtiketaDogadjaja}" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="24,264,0,0" Width="351"  Height="107" VerticalAlignment="Top" SelectionChanged="data_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Oznaka" Binding="{Binding oznaka}"/>
+                <DataGridTextColumn Header="Boja" Binding="{Binding boja}"/>
+                <DataGridTextColumn Header="Opis" Binding="{Binding opis}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Dodaj" Height="23" HorizontalAlignment="Left" Margin="406,264,0,0" x:Name="button2_Copy" VerticalAlignment="Top" Width="94" Click="dodaj_Click"/>
+        <Button Content="Odustani" Height="23" HorizontalAlignment="Left" Margin="406,348,0,0" x:Name="button3_Copy" VerticalAlignment="Top" Width="94" Click="odustani_Click" />
+        <Button Content="Izmeni" Height="23" HorizontalAlignment="Left" Margin="406,292,0,0" x:Name="button2_Copy1" VerticalAlignment="Top" Width="94" Click="izmeni_Click" />
+        <Button Content="Obrši" Height="23" HorizontalAlignment="Left" Margin="406,320,0,0" x:Name="button2_Copy2" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.5,0.5" Click="obrisi_Click"/>
+        <Grid Name ="grid1" Background="#FFFFFFFF" HorizontalAlignment="Left" Height="24" Margin="82,86,0,0" VerticalAlignment="Top" Width="120">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="97*"/>
+                <ColumnDefinition Width="16*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.ColumnSpan="3"/>
+        </Grid>
+
+    </Grid>
+</Window>

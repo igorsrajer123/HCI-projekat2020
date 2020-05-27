@@ -1,0 +1,205 @@
+﻿<Window x:Class="HCI_projekat_2020.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_projekat_2020"
+        xmlns:cmd="clr-namespace:HCI_projekat_2020.Komande"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Title="MainWindow" Height="603.03" Width="1257.995" Closed="Window_Closed">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.ManipulacijaDogađajima" CanExecute="Dogadjaj_CanExecute" Executed="Dogadjaj_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.ManipulacijaTipovima" CanExecute="Tip_CanExecute" Executed="Tip_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.ManipulacijaEtiketama" CanExecute="Etiketa_CanExecute" Executed="Etiketa_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Izađi" CanExecute="Izadji_CanExecute" Executed="Izadji_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.UkloniEntitet" CanExecute="UkloniEntitet_CanExecute" Executed="UkloniEntitet_Executed"></CommandBinding>
+    </Window.CommandBindings>
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Canvas>
+        <DockPanel Width="1252" Height="57">
+            <Menu  Background="LightGray"  Name="menu" Height="24" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Width="1257">
+                <MenuItem Header="Komande">
+                    <MenuItem Header="Manipulacija događajima" Command="cmd:RoutedCommands.ManipulacijaDogađajima" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje događaja koje izaberete iz liste postojećih."/>
+                    <MenuItem Header="Manipulacija tipovima događaja" Command="cmd:RoutedCommands.ManipulacijaTipovima" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje tipa događaja."/>
+                    <MenuItem Header="Manipulacija etiketama događaja" Command="cmd:RoutedCommands.ManipulacijaEtiketama" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje etikete događaja."/>
+                    <MenuItem Header="Izađi" ToolTip="Napusti aplikaciju." Command="cmd:RoutedCommands.Izađi"/>
+                </MenuItem>
+                <MenuItem Header="Osveži" Width="66" Click="osvezi_Click"/>
+                <MenuItem Header="Help" Width="66"/>
+            </Menu>
+
+            <ToolBar HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1" x:Name="toolBar" Background="LightGray" Height="36" VerticalAlignment="Top" Margin="-1256,22,0,-1" RenderTransformOrigin="0.5,0.5" Width="1278">
+                <ToolBar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ToolBar.RenderTransform>
+
+                <Button x:Name="buttonTb1" Command="cmd:RoutedCommands.ManipulacijaDogađajima" ToolTip="Dodavanje, izmena ili brisanje događaja" Height="36" VerticalAlignment="Top" Width="70" Margin="15,-2,0,-5">
+                    <Grid Height="26" Width="70">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="pack://application:,,,/+.png" Stretch="Uniform"/>
+                        </Grid.Background>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="buttonTb2" Command="cmd:RoutedCommands.UkloniEntitet" VerticalAlignment="Stretch" ToolTip="Brisanje događaja, tipova događaja ili etiketa" Width="70" Margin="15,-2,0,-5">
+                    <Grid Height="26" Width="70">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="pack://application:,,,/x3.png" Stretch="Uniform"/>
+                        </Grid.Background>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="buttonTb3" Height="36" VerticalAlignment="Top" Width="70" Margin="15,-2,0,-5">
+                    <Grid Height="26" Width="70">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="pack://application:,,,/lupa.png" Stretch="Uniform"/>
+                        </Grid.Background>
+                    </Grid>
+                </Button>
+
+            </ToolBar>
+
+        </DockPanel>
+
+        <ListView x:Name="listView" ItemsSource="{Binding listaDog, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Black" Background="LightGray" Foreground="Black" BorderThickness="1" HorizontalAlignment="Left" Height="442" VerticalAlignment="Top" Width="134" Canvas.Top="57">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="55" Header="Oznaka" DisplayMemberBinding="{Binding oznaka}"/>
+                    <GridViewColumn Header="Naziv" Width="75" DisplayMemberBinding="{Binding naziv}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Canvas x:Name="canvas123" HorizontalAlignment="Left" VerticalAlignment="Top" AllowDrop="True" DragOver="canvas_DragOver" Drop="Canvas_Drop" Canvas.Left="134" Canvas.Top="57" Height="517" Width="1118">
+            <Canvas.Background>
+                <ImageBrush Stretch="Fill" ImageSource="pack://application:,,,/svet.jpg" AlignmentY="Center" AlignmentX="Center"/>
+            </Canvas.Background>
+        </Canvas>
+
+        <StatusBar Background="LightGray" Height="32" Canvas.Top="542" Width="1252" BorderBrush="Black" BorderThickness="1">
+            <TextBlock x:Name="textBlock" FontWeight="Bold" FontFamily="Verdana" TextWrapping="Wrap" Height="35" Width="575"/>
+        </StatusBar>
+
+        <TextBox x:Name="textBox" Height="23" GotFocus="textBox_GotFocus" LostFocus="textBox_LostFocus" TextChanged="textBox_TextChanged" TextWrapping="Wrap" Text="Search..." BorderBrush="Black" Canvas.Top="496" Width="98"/>
+
+        <Grid RenderTransformOrigin="1.875,7.478" Background="LightGray" Canvas.Left="98" Canvas.Top="496" Height="23" Width="36">
+            <Button x:Name="ponisti" IsEnabled="False" Style="{DynamicResource ButtonStyle}" Click="ponisti_Click" Canvas.Left="98" Canvas.Top="519" Width="36" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="pack://application:,,,/lupa.png" AlignmentY="Center" AlignmentX="Center" />
+                </Button.Background>
+            </Button>
+        </Grid>
+
+        <Grid Background="LightGray" Height="23" Width="134" Canvas.Top="519">
+            <Button x:Name="buttonFilter" Click="buttonFilter_Click" Content="Filters" BorderBrush="Black" Margin="0,0,36,0"/>
+
+            <Button x:Name="buttonDoFilter" Click="buttonDoFilter_Click" IsEnabled="False" Margin="98,0,0,0" Style="{DynamicResource ButtonStyle}"/>
+        </Grid>
+
+        <Canvas x:Name="canvasFilters" Visibility="Visible" Height="294" Width="204" Canvas.Left="10" Canvas.Top="225">
+            <TreeView Name="treeView" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="LightGray" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Black" Height="294" Width="204" BorderThickness="1,1,1,1">
+
+                <TreeViewItem Header="Humanitarnog karaktera" IsExpanded="True" Width="185">
+                    <StackPanel>
+                        <CheckBox Name="HumKarDa" Content="Da" Width="52" FontSize="10" Checked="humKar_Checked" Unchecked="humKar_Unchecked" />
+                        <CheckBox Name="HumKarNe" Content="Ne"  Width="52" FontSize="10" Checked="humKar_Checked" Unchecked="humKar_Unchecked"/>
+                    </StackPanel>
+                </TreeViewItem>
+
+                <TreeViewItem Header="Posećenost" IsExpanded="True" Width="185">
+                    <StackPanel Width="137">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="p1" FontSize="10" Checked="posecenost_Checked" Unchecked="posecenost_Unchecked"/>
+                            <Rectangle Width="5"/>
+                            <TextBlock Text="Do 1000" FontSize="10" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="p2" FontSize="10" Checked="posecenost_Checked" Unchecked="posecenost_Unchecked"/>
+                            <Rectangle Width="5"/>
+                            <TextBlock Text="1000-5000" FontSize="10" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="p3" FontSize="10" Checked="posecenost_Checked" Unchecked="posecenost_Unchecked"/>
+                            <Rectangle Width="5"/>
+                            <TextBlock Text="5000-10000" FontSize="10" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="p4" FontSize="10" Checked="posecenost_Checked" Unchecked="posecenost_Unchecked"/>
+                            <Rectangle Width="5"/>
+                            <TextBlock Text="Preko 10000" FontSize="10" />
+                        </StackPanel>
+                    </StackPanel>
+                </TreeViewItem>
+
+                <TreeViewItem Header="Tip" IsExpanded="True" Width="185">
+                    <ListView x:Name="listViewTip" Background="Transparent" Height="50" Foreground="Black" ItemsSource="{Binding listaDog, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="144" BorderBrush="{x:Null}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" >
+                                    <CheckBox Name="CheckBoxFilterTip" Tag="{Binding Path=oznaka}" Checked="tip_Checked" Unchecked="tip_Unchecked"/>
+                                    <Rectangle Width="5"/>
+                                    <TextBlock Text="{Binding Path=oznaka}" FontSize="10" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate >
+                    </ListView>
+                </TreeViewItem>
+
+                <TreeViewItem Header="Etiketa" IsExpanded="True" Width="185">
+                    <ListView x:Name="listViewEtiketa" Height="67" Foreground="Black" Background="Transparent" ItemsSource="{Binding listaEtiketa, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="144" BorderBrush="{x:Null}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" >
+                                    <CheckBox x:Name="CheckBoxFilterTip" Tag="{Binding oznaka}" Checked="etiketa_Checked" Unchecked="etiketa_Unchecked" />
+                                    <Rectangle Width="5"/>
+                                    <TextBlock Text="{Binding oznaka}" FontSize="10" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </TreeViewItem>
+
+            </TreeView>
+        </Canvas>
+
+    </Canvas>
+</Window>
