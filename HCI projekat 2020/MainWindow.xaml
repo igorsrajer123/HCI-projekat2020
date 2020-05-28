@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_projekat_2020"
         xmlns:cmd="clr-namespace:HCI_projekat_2020.Komande"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
@@ -17,9 +16,11 @@
         <CommandBinding Command="cmd:RoutedCommands.ManipulacijaEtiketama" CanExecute="Etiketa_CanExecute" Executed="Etiketa_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Izađi" CanExecute="Izadji_CanExecute" Executed="Izadji_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.UkloniEntitet" CanExecute="UkloniEntitet_CanExecute" Executed="UkloniEntitet_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.PretraziEntitete" CanExecute="pretraziEntitete_CanExecute" Executed="pretraziEntitete_Executed"></CommandBinding>
     </Window.CommandBindings>
 
     <Window.Resources>
+
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
@@ -77,7 +78,7 @@
                     </Grid>
                 </Button>
 
-                <Button x:Name="buttonTb2" Command="cmd:RoutedCommands.UkloniEntitet" VerticalAlignment="Stretch" ToolTip="Brisanje događaja, tipova događaja ili etiketa" Width="70" Margin="15,-2,0,-5">
+                <Button x:Name="buttonTb2" Command="cmd:RoutedCommands.UkloniEntitet" VerticalAlignment="Stretch" ToolTip="Brisanje događaja, tipova događaja i etiketa" Width="70" Margin="15,-2,0,-5">
                     <Grid Height="26" Width="70">
                         <Grid.Background>
                             <ImageBrush ImageSource="pack://application:,,,/x3.png" Stretch="Uniform"/>
@@ -85,7 +86,7 @@
                     </Grid>
                 </Button>
 
-                <Button x:Name="buttonTb3" Height="36" VerticalAlignment="Top" Width="70" Margin="15,-2,0,-5">
+                <Button x:Name="buttonTb3" Command="cmd:RoutedCommands.PretraziEntitete" Height="36" VerticalAlignment="Top" ToolTip="Pretraga događaja, tipova događaja i etiketa" Width="70" Margin="15,-2,0,-5">
                     <Grid Height="26" Width="70">
                         <Grid.Background>
                             <ImageBrush ImageSource="pack://application:,,,/lupa.png" Stretch="Uniform"/>
@@ -116,7 +117,7 @@
             <TextBlock x:Name="textBlock" FontWeight="Bold" FontFamily="Verdana" TextWrapping="Wrap" Height="35" Width="575"/>
         </StatusBar>
 
-        <TextBox x:Name="textBox" Height="23" GotFocus="textBox_GotFocus" LostFocus="textBox_LostFocus" TextChanged="textBox_TextChanged" TextWrapping="Wrap" Text="Search..." BorderBrush="Black" Canvas.Top="496" Width="98"/>
+        <TextBox x:Name="textBox" Height="23" GotFocus="textBox_GotFocus" LostFocus="textBox_LostFocus" TextChanged="textBox_TextChanged" TextWrapping="Wrap" Text="Pretraga..." BorderBrush="Black" Canvas.Top="496" Width="98"/>
 
         <Grid RenderTransformOrigin="1.875,7.478" Background="LightGray" Canvas.Left="98" Canvas.Top="496" Height="23" Width="36">
             <Button x:Name="ponisti" IsEnabled="False" Style="{DynamicResource ButtonStyle}" Click="ponisti_Click" Canvas.Left="98" Canvas.Top="519" Width="36" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -127,13 +128,13 @@
         </Grid>
 
         <Grid Background="LightGray" Height="23" Width="134" Canvas.Top="519">
-            <Button x:Name="buttonFilter" Click="buttonFilter_Click" Content="Filters" BorderBrush="Black" Margin="0,0,36,0"/>
+            <Button x:Name="buttonFilter" Click="buttonFilter_Click" Content="Filteri" BorderBrush="Black" Margin="0,0,36,0"/>
 
             <Button x:Name="buttonDoFilter" Click="buttonDoFilter_Click" IsEnabled="False" Margin="98,0,0,0" Style="{DynamicResource ButtonStyle}"/>
         </Grid>
 
-        <Canvas x:Name="canvasFilters" Visibility="Visible" Height="294" Width="204" Canvas.Left="10" Canvas.Top="225">
-            <TreeView Name="treeView" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="LightGray" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Black" Height="294" Width="204" BorderThickness="1,1,1,1">
+        <Canvas x:Name="canvasFilters" Visibility="Hidden" Height="308" Width="204" Canvas.Left="10" Canvas.Top="211">
+            <TreeView Name="treeView" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="LightGray" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Black" Height="308" Width="204" BorderThickness="1,1,1,1">
 
                 <TreeViewItem Header="Humanitarnog karaktera" IsExpanded="True" Width="185">
                     <StackPanel>
@@ -170,8 +171,8 @@
                     </StackPanel>
                 </TreeViewItem>
 
-                <TreeViewItem Header="Tip" IsExpanded="True" Width="185">
-                    <ListView x:Name="listViewTip" Background="Transparent" Height="50" Foreground="Black" ItemsSource="{Binding listaDog, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="144" BorderBrush="{x:Null}">
+                <TreeViewItem Header="Tip" IsExpanded="True" Width="185" Height="90">
+                    <ListView x:Name="listViewTip" Background="Transparent" Height="70" Foreground="Black" ItemsSource="{Binding listaTip, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="144" BorderBrush="{x:Null}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" >
@@ -184,7 +185,7 @@
                     </ListView>
                 </TreeViewItem>
 
-                <TreeViewItem Header="Etiketa" IsExpanded="True" Width="185">
+                <TreeViewItem Header="Etiketa" IsExpanded="True" Width="185" Height="86">
                     <ListView x:Name="listViewEtiketa" Height="67" Foreground="Black" Background="Transparent" ItemsSource="{Binding listaEtiketa, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="144" BorderBrush="{x:Null}">
                         <ListView.ItemTemplate>
                             <DataTemplate>

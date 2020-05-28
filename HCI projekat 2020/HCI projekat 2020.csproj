@@ -69,6 +69,9 @@
       <DependentUpon>DodajTip.xaml</DependentUpon>
     </Compile>
     <Compile Include="EtiketaDogadjaja.cs" />
+    <Compile Include="PretraziEntitete.xaml.cs">
+      <DependentUpon>PretraziEntitete.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TipDogadjaja.cs" />
     <Compile Include="UkloniEntitet.xaml.cs">
       <DependentUpon>UkloniEntitet.xaml</DependentUpon>
@@ -106,6 +109,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PretraziEntitete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UkloniEntitet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

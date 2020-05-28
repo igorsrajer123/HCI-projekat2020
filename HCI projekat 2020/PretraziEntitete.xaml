@@ -1,0 +1,85 @@
+﻿<Window x:Class="HCI_projekat_2020.PretraziEntitete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_projekat_2020"
+        mc:Ignorable="d"
+        Title="PretraziEntitete" Height="505.252" Width="614.43" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Canvas Background="LightGray">
+            <Label Height="29" Width="185" Canvas.Left="30" Canvas.Top="10" Content="Događaji" FontWeight="Bold"/>
+
+            <Label Height="29" Width="129" Canvas.Left="257" Canvas.Top="10" Content="Tipovi događaja" FontWeight="Bold" />
+
+            <Label Height="29" Width="93" Canvas.Left="442" Canvas.Top="10" Content="Etikete" FontWeight="Bold" />
+
+            <ListView  x:Name="listView1" Height="324" Width="185" Canvas.Left="30" Canvas.Top="39" Background="LightGray" Foreground="Black" BorderThickness="2"  BorderBrush="Black" ItemsSource="{Binding listaDog, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="50" Header="Oznaka" DisplayMemberBinding="{Binding oznaka}"/>
+                        <GridViewColumn Header="Naziv" Width="70" DisplayMemberBinding="{Binding naziv}"/>
+                        <GridViewColumn Header="Tip" Width="60" DisplayMemberBinding="{Binding tip}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <ListView x:Name="listView2" Height="324" Width="143" Canvas.Left="257" Canvas.Top="39"   Foreground="Black" BorderThickness="2" Background="LightGray" BorderBrush="Black"  ItemsSource="{Binding listaTip, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="60" Header="Oznaka" DisplayMemberBinding="{Binding oznaka}"/>
+                        <GridViewColumn Header="Naziv" Width="80" DisplayMemberBinding="{Binding naziv}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <ListView x:Name="listView3" Height="324" Width="128" Canvas.Left="442" Canvas.Top="39"  Foreground="Black" BorderThickness="2"   Background="LightGray" BorderBrush="Black"  ItemsSource="{Binding listaEt, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="120" Header="Oznaka" DisplayMemberBinding="{Binding oznaka}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <TextBox x:Name="nazDog" Width="118" Canvas.Left="30" Canvas.Top="368" Text="Pretraga po nazivu..." GotFocus="nazDog_GotFocus" LostFocus="nazDog_LostFocus" TextChanged="nazDog_TextChanged"/>
+            <TextBox x:Name="oznDog" Width="118" Canvas.Left="30" Canvas.Top="391" Text="Pretraga po oznaci..." GotFocus="oznDog_GotFocus" LostFocus="oznDog_LostFocus" TextChanged="oznDog_TextChanged"/>
+            <TextBox x:Name="nazTip" Width="118" Canvas.Left="257" Canvas.Top="368" Text="Pretraga po nazivu..." GotFocus="nazTip_GotFocus" LostFocus="nazTip_LostFocus" TextChanged="nazTip_TextChanged"/>
+            <TextBox x:Name="oznTip" Width="118" Canvas.Left="257" Canvas.Top="391" Text="Pretraga po oznaci..." GotFocus="oznTip_GotFocus" LostFocus="oznTip_LostFocus" TextChanged="oznTip_TextChanged"/>
+            <TextBox x:Name="oznEt" Width="118" Canvas.Left="442" Canvas.Top="368" Text="Pretraga po oznaci..." GotFocus="oznEt_GotFocus" LostFocus="oznEt_LostFocus" TextChanged="oznEt_TextChanged" />
+            <TextBox  x:Name="tipDog" Width="118" Canvas.Left="30" Canvas.Top="414" Text="Pretraga po tipu..." GotFocus="tipDog_GotFocus" LostFocus="tipDog_LostFocus" TextChanged="tipDog_TextChanged"/>
+
+            <Button x:Name="uklNazDog" Height="18" Width="27" Canvas.Left="3" Canvas.Top="345" IsEnabled="False" Background="LightGray" Click="ponisti1_Click" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle}" />
+            <Button x:Name="uklNazTip" Height="18" Width="27" Canvas.Left="230" Canvas.Top="345" IsEnabled="False" Background="Transparent" Click="ponisti11_Click" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle}"/>
+            <Button x:Name="uklOznEt" Height="18" Width="27" Canvas.Left="415" Canvas.Top="345" IsEnabled="False" Background="Transparent" RenderTransformOrigin="0.526,0.444" Click="ponisti111_Click" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle}"/>
+
+        </Canvas>
+
+    </Grid>
+</Window>

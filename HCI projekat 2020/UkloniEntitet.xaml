@@ -10,7 +10,7 @@
         Title="UkloniEntitet" Height="434.595" Width="287.027" Closed="Window_Closed">
 
     <Grid Margin="0,0,0,-1" Background="LightGray">
-        <TabControl x:Name="tabControl" SelectionChanged="tabControl_SelectionChanged" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="156"  Background="Gray" Height="394">
+        <TabControl x:Name="tabControl" SelectionChanged="tabControl_SelectionChanged" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="156"  Background="LightGray" Height="394">
 
             <TabItem Name="tab1" Header="Događaji" Margin="-2,0">
                 <ListView x:Name="listView1" Background="Transparent" Foreground="Black" ItemsSource="{Binding listaDog, UpdateSourceTrigger=PropertyChanged}" Margin="-6,-5,-6,0" Height="371" VerticalAlignment="Bottom">

@@ -171,6 +171,17 @@ namespace HCI_projekat_2020
             UkloniEntitet ukloniEntitet = new UkloniEntitet();
             ukloniEntitet.Show();
         }
+
+        private void pretraziEntitete_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void pretraziEntitete_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            PretraziEntitete prE = new PretraziEntitete();
+            prE.Show();
+        }
         #endregion
 
         private void osvezi_Click(object sender, RoutedEventArgs e)
@@ -200,6 +211,13 @@ namespace HCI_projekat_2020
                 listView.ItemsSource = listaDog;
             }
             stream.Close();
+
+            canvas123.Children.Clear();
+
+            foreach (Dogadjaj d in listaDog)
+            {
+                canvasCreated(d);
+            }
         }
 
         private void listView_ItemUpdated(object sender, System.Windows.Controls.Primitives.ItemsChangedEventArgs e)
@@ -401,9 +419,9 @@ namespace HCI_projekat_2020
 
         private void ponisti_Click(object sender, RoutedEventArgs e)
         {
-            if (!textBox.Text.Equals("Search..."))
+            if (!textBox.Text.Equals("Pretraga..."))
             {
-                textBox.Text = "Search...";
+                textBox.Text = "Pretraga...";
                 listView.ItemsSource = listaDog;
                 listView.InvalidateVisual();
             }
@@ -414,7 +432,7 @@ namespace HCI_projekat_2020
         private void textBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
-            if (tb.Text.Equals("Search..."))
+            if (tb.Text.Equals("Pretraga..."))
             {
                 tb.Text = string.Empty;
             }
@@ -426,7 +444,7 @@ namespace HCI_projekat_2020
             TextBox tb = (TextBox)sender;
             if (tb.Text.Equals(string.Empty))
             {
-                tb.Text = "Search...";
+                tb.Text = "Pretraga...";
                 ponisti.IsEnabled = false;
             }
             tb.GotFocus += textBox_GotFocus;
@@ -439,7 +457,7 @@ namespace HCI_projekat_2020
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!textBox.Text.Equals("Search..."))
+            if (!textBox.Text.Equals("Pretraga..."))
             {
                 ponisti.IsEnabled = true;
                 BitmapImage slika = new BitmapImage(new Uri("pack://application:,,,/x3.png"));
@@ -450,12 +468,7 @@ namespace HCI_projekat_2020
                 var ls2 = listView.ItemsSource.Cast<Dogadjaj>();
                 var dogadjaji2 = (from d2 in ls2 where d2.naziv.Contains(textBox.Text) select d2);
                 listView.ItemsSource = dogadjaji2;
-                listView.InvalidateVisual();
-                
-                /*
-                var ls = listView.ItemsSource.Cast<Dogadjaj>();
-                var dogadjaji = (from d in ls where d.oznaka.Contains(textBox.Text) select d);
-                listView.ItemsSource = dogadjaji;*/                      
+                listView.InvalidateVisual();                  
             }
         }
         #endregion
@@ -479,7 +492,38 @@ namespace HCI_projekat_2020
                 ImageBrush img = new ImageBrush(slika);
                 img.Stretch = Stretch.Uniform;
                 buttonDoFilter.Background = img;
-               buttonDoFilter.ToolTip = "Filter";
+               buttonDoFilter.ToolTip = "Filtriraj";
+
+                textBox.Text = "Pretraga...";
+                listView.ItemsSource = listaDog;
+
+                //ucitavanje tipova
+                FileStream stream2 = new FileStream("data.bin", FileMode.OpenOrCreate, FileAccess.Read);
+                BinaryFormatter bin2 = new BinaryFormatter();
+
+                long length2 = new System.IO.FileInfo(".//.//data.bin").Length;
+                if (length2 > 0)
+                    listaTip = (ObservableCollection<TipDogadjaja>)bin2.Deserialize(stream2);
+                if (listaTip.Count() != 0)
+                {
+                    listViewTip.ItemsSource = null;
+                    listViewTip.ItemsSource = listaTip;
+                }
+                stream2.Close();
+
+                //ucitavanje etiketa
+                FileStream stream3 = new FileStream("data2.bin", FileMode.OpenOrCreate, FileAccess.Read);
+                BinaryFormatter bin3 = new BinaryFormatter();
+
+                long length3 = new System.IO.FileInfo(".//.//data2.bin").Length;
+                if (length3 > 0)
+                    listaEtiketa = (ObservableCollection<EtiketaDogadjaja>)bin3.Deserialize(stream3);
+                if (listaEtiketa.Count() != 0)
+                {
+                    listViewEtiketa.ItemsSource = null;
+                    listViewEtiketa.ItemsSource = listaEtiketa;
+                }
+                stream3.Close();
             }
         }
 
@@ -577,7 +621,9 @@ namespace HCI_projekat_2020
         private void tip_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox c = sender as CheckBox;
-           
+            List<string> oznakeT = new List<string>();
+            List<string> oznakeD = new List<string>();
+
             var dog = (from d in listaDog where d.tip.Equals(c.Tag) select d);
 
             filterTip.AddRange(dog);         

@@ -32,3 +32,5 @@ C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\bin\Debug\zh-Hant\Syste
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\UkloniEntitet.g.cs
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\UkloniEntitet.baml
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\HCI projekat 2020.csprojResolveAssemblyReference.cache
+C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\PretraziEntitete.g.cs
+C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\PretraziEntitete.baml

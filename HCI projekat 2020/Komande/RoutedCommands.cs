@@ -63,5 +63,15 @@ namespace HCI_projekat_2020.Komande
                 new KeyGesture(Key.U, ModifierKeys.Alt | ModifierKeys.Control)
             }
             );
+
+        public static readonly RoutedUICommand PretraziEntitete = new RoutedUICommand(
+            "Pretrazi Entitete",
+            "PretraziEntitete",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.S, ModifierKeys.Control),
+                new KeyGesture(Key.S, ModifierKeys.Alt | ModifierKeys.Control)
+            });
     }
 }

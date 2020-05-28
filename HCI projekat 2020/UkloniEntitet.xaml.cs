@@ -89,8 +89,6 @@ namespace HCI_projekat_2020
                 listView3.ItemsSource = listaEt;
             }
             stream2.Close();
-
-
         }
 
         private void ukloni_Click(object sender, RoutedEventArgs e)
