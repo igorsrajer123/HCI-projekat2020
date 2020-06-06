@@ -16,11 +16,29 @@ namespace HCI_projekat_2020
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+    public class Dugme : Button
+    {
+       [System.ComponentModel.Browsable(false)]
+        public System.Drawing.Rectangle Bounds { get; set; }
+
+        public System.Drawing.Point Location { get; set; }
+
+        public static readonly System.Drawing.Point Empty;
+
+        public Dugme()
+        {
+        }
+    }
+
+
     public partial class MainWindow : Window
     {
-        private Button draggedItem;
+        private Dugme draggedItem;
 
         private bool dragging = false;
+
+        private static bool initialized = false;
 
         public static ObservableCollection<Dogadjaj> listaDog = new ObservableCollection<Dogadjaj>();
 
@@ -35,6 +53,7 @@ namespace HCI_projekat_2020
 
         public MainWindow()
         {
+
             foreach (Dogadjaj dog in DodajDogadjaj.listaDogadjaja)
             {
                 listaDog.Add(dog);
@@ -100,9 +119,9 @@ namespace HCI_projekat_2020
 
             listView.ItemContainerGenerator.ItemsChanged += listView_ItemUpdated;
 
-            foreach(Dogadjaj d in listaDog)
+            foreach (Dogadjaj d in listaDog)
             {
-                canvasCreated(d);
+               canvasCreated(d);
             }
 
             textBlock.Text = DateTime.Now.ToString("dddd , MMM dd yyyy, hh:mm tt");
@@ -186,6 +205,8 @@ namespace HCI_projekat_2020
 
         private void osvezi_Click(object sender, RoutedEventArgs e)
         {
+            initialized = false; 
+
             foreach (Dogadjaj d in DodajDogadjaj.listaDogadjaja)
             {
                 listaDog.Add(d);
@@ -248,33 +269,39 @@ namespace HCI_projekat_2020
                         if (d == draggedItem.Tag)
                         {
                             foreach (Dogadjaj d1 in listaDog)
-                            {
+                            { 
                                 if (d1 != d)
                                 {
-                                    double w = Math.Round(d1.Y, 1);
-                                    double q = Math.Round(d.Y, 1);
-
                                     if (Math.Round(d1.X, 1) == Math.Round(d.X, 1) && Math.Round(d1.Y, 1) == Math.Round(d.Y, 1))
                                     {
-                                        if (d.X < d1.X && d.Y < d1.Y)
+                                        if (d.X == d1.X && d.Y == d1.Y)
                                         {
-                                            d.X = d1.X - 15 / maxX;
-                                            d.Y = d1.Y - 15 / maxY;
+                                            d.X = d1.X + 25 / maxX;                                    
+                                            break;
+                                        }
+                                        else if (d.X < d1.X && d.Y < d1.Y)
+                                        {
+                                                d.X = d1.X - 25 / maxX;
+                                                d.Y = d1.Y - 25 / maxY;
+                                                break;
                                         }
                                         else if (d.X > d1.X && d.Y < d1.Y)
                                         {
-                                            d.X = d1.X + 15 / maxX;
-                                            d.Y = d1.Y - 15 / maxY;
+                                                d.X = d1.X + 25 / maxX;
+                                                d.Y = d1.Y - 25 / maxY;
+                                                break;
                                         }
                                         else if (d.X > d1.X && d.Y > d1.Y)
                                         {
-                                            d.X = d1.X + 15 / maxX;
-                                            d.Y = d1.Y + 15 / maxY;
+                                                d.X = d1.X + 25 / maxX;
+                                                d.Y = d1.Y + 25 / maxY;
+                                                break;                      
                                         }
                                         else
                                         {
-                                            d.X = d1.X - 15 / maxX;
-                                            d.Y = d1.Y + 15 / maxY;
+                                            d.X = d1.X - 25 / maxX;
+                                            d.Y = d1.Y + 25 / maxY;
+                                            break;
                                         }
                                     }
                                     else
@@ -289,7 +316,7 @@ namespace HCI_projekat_2020
                 }
 
                 canvas123.Children.Clear();
-
+              
                 foreach (Dogadjaj d in listaDog)
                 {
                     canvasCreated(d);
@@ -353,8 +380,8 @@ namespace HCI_projekat_2020
         private void canvasCreated(Dogadjaj d)
         {
             BitmapImage logo = new BitmapImage();
-            Button dugme = new Button();
-
+            Dugme dugme = new Dugme();
+           
             dugme.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(button_selected);
             dugme.Width = 40;
             dugme.Height = 40;
@@ -363,31 +390,35 @@ namespace HCI_projekat_2020
             dugme.ToolTip = "Oznaka: " + d.oznaka + ", Naziv: " + d.naziv;
             dugme.BorderBrush = Brushes.Black;
             dugme.BorderThickness = new Thickness(2);
-            //======================================================
-            double rd = 0;
-            double r1d = 0;
-            if (d.X == -1 && d.Y == -1)
-            {
-                Random r = new Random();
-                Random r1 = new Random();
-                rd = r.NextDouble();
-                r1d = r1.NextDouble();
-            }
+         
             double maxX = canvas123.Width - dugme.Width;
             double maxY = canvas123.Height - dugme.Height;
-            if (d.Y == -1)
+
+            
+            if(initialized == false)
             {
-                d.Y = rd;
+               for(int i = 1; i < listaDog.Count; i++)
+                {
+                    listaDog.ElementAt(i).Y = listaDog.ElementAt(i - 1).Y + 45 / maxY;
+                }
+
+                initialized = true;
             }
-            if (d.X == -1)
+
+            foreach(Dogadjaj dog in listaDog)
             {
-                d.X = r1d;
+                if(dog.oznaka != d.oznaka && d.X == dog.X && d.Y == dog.Y)
+                {
+                    d.Y = dog.Y + 45 / maxY;
+                    break;
+                }
             }
 
             Canvas.SetLeft(dugme, d.X * maxX);
             Canvas.SetTop(dugme, d.Y * maxY);
+
             canvas123.Children.Add(dugme);
-            //-----------------------------------------------------------
+
             try
             {
                 logo.BeginInit();
@@ -405,12 +436,13 @@ namespace HCI_projekat_2020
         }
 
         private void button_selected(object sender, MouseButtonEventArgs e)
-        {
+        { 
             if (!dragging)
             {
-                dragging = true;
-                draggedItem = (Button)sender;
+                dragging = true; 
+                draggedItem = (Dugme)sender;
                 DragDrop.DoDragDrop(this, draggedItem, DragDropEffects.Move);
+                e.Handled = true;
             }
         }
         #endregion
