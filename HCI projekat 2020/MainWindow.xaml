@@ -50,13 +50,13 @@
     <Canvas>
         <DockPanel Width="1252" Height="57">
             <Menu  Background="LightGray"  Name="menu" Height="24" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Width="1257">
-                <MenuItem Header="Komande">
-                    <MenuItem Header="Manipulacija događajima" Command="cmd:RoutedCommands.ManipulacijaDogađajima" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje događaja koje izaberete iz liste postojećih."/>
-                    <MenuItem Header="Manipulacija tipovima događaja" Command="cmd:RoutedCommands.ManipulacijaTipovima" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje tipa događaja."/>
-                    <MenuItem Header="Manipulacija etiketama događaja" Command="cmd:RoutedCommands.ManipulacijaEtiketama" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje etikete događaja."/>
-                    <MenuItem Header="Izađi" ToolTip="Napusti aplikaciju." Command="cmd:RoutedCommands.Izađi"/>
+                <MenuItem Name="komande" Header="Komande">
+                    <MenuItem Name="mI1" Header="Manipulacija događajima" Command="cmd:RoutedCommands.ManipulacijaDogađajima" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje događaja koje izaberete iz liste postojećih."  ToolTipService.ShowDuration="2000"/>
+                    <MenuItem Name="mI2"  Header="Manipulacija tipovima događaja" Command="cmd:RoutedCommands.ManipulacijaTipovima" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje tipa događaja"  ToolTipService.ShowDuration="2000"/>
+                    <MenuItem Name="mI3"  Header="Manipulacija etiketama događaja" Command="cmd:RoutedCommands.ManipulacijaEtiketama" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje etikete događaja"  ToolTipService.ShowDuration="2000"/>
+                    <MenuItem Name="mI4" Header="Izađi" ToolTip="Napusti aplikaciju"  ToolTipService.ShowDuration="2000" Command="cmd:RoutedCommands.Izađi"/>
                 </MenuItem>
-                <MenuItem Header="Osveži" Width="66" Click="osvezi_Click"/>
+                <MenuItem Name="osvezi" Header="Osveži" Width="66" Click="osvezi_Click"/>
                 <MenuItem Header="Help" Width="66"/>
             </Menu>
 
@@ -70,7 +70,7 @@
                     </TransformGroup>
                 </ToolBar.RenderTransform>
 
-                <Button x:Name="buttonTb1" Command="cmd:RoutedCommands.ManipulacijaDogađajima" ToolTip="Dodavanje, izmena ili brisanje događaja" Height="36" VerticalAlignment="Top" Width="70" Margin="15,-2,0,-5">
+                <Button x:Name="buttonTb1" Command="cmd:RoutedCommands.ManipulacijaDogađajima" ToolTip="Dodavanje, izmena ili brisanje događaja" ToolTipService.ShowDuration="2000" Height="36" VerticalAlignment="Top" Width="70" Margin="15,-2,0,-5">
                     <Grid Height="26" Width="70">
                         <Grid.Background>
                             <ImageBrush ImageSource="pack://application:,,,/+.png" Stretch="Uniform"/>
@@ -78,7 +78,7 @@
                     </Grid>
                 </Button>
 
-                <Button x:Name="buttonTb2" Command="cmd:RoutedCommands.UkloniEntitet" VerticalAlignment="Stretch" ToolTip="Brisanje događaja, tipova događaja i etiketa" Width="70" Margin="15,-2,0,-5">
+                <Button x:Name="buttonTb2" Command="cmd:RoutedCommands.UkloniEntitet" VerticalAlignment="Stretch" ToolTip="Brisanje događaja, tipova događaja i etiketa"  ToolTipService.ShowDuration="2000" Width="70" Margin="15,-2,0,-5">
                     <Grid Height="26" Width="70">
                         <Grid.Background>
                             <ImageBrush ImageSource="pack://application:,,,/x3.png" Stretch="Uniform"/>
@@ -86,13 +86,16 @@
                     </Grid>
                 </Button>
 
-                <Button x:Name="buttonTb3" Command="cmd:RoutedCommands.PretraziEntitete" Height="36" VerticalAlignment="Top" ToolTip="Pretraga događaja, tipova događaja i etiketa" Width="70" Margin="15,-2,0,-5">
+                <Button x:Name="buttonTb3" Command="cmd:RoutedCommands.PretraziEntitete" Height="36" VerticalAlignment="Top" ToolTip="Pretraga događaja, tipova događaja i etiketa"  ToolTipService.ShowDuration="2000" Width="70" Margin="15,-2,0,-5">
                     <Grid Height="26" Width="70">
                         <Grid.Background>
                             <ImageBrush ImageSource="pack://application:,,,/lupa.png" Stretch="Uniform"/>
                         </Grid.Background>
                     </Grid>
                 </Button>
+
+                <Label FontWeight="Bold" Width="70" Margin="875,0,0,3">Tooltipovi:</Label>
+                <CheckBox Name="pomoc" IsChecked="True" Checked="pomoc_Checked" Unchecked="pomoc_Unchecked" Height="24" Width="25"  BorderBrush="White" BorderThickness="3" Cursor="Arrow" Margin="3,2,0,3"/>
 
             </ToolBar>
 

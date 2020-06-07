@@ -459,6 +459,7 @@ namespace HCI_projekat_2020
             }
 
             ponisti.IsEnabled = false;
+            ponisti.ToolTip = null;
         }
 
         private void textBox_GotFocus(object sender, RoutedEventArgs e)
@@ -468,7 +469,13 @@ namespace HCI_projekat_2020
             {
                 tb.Text = string.Empty;
             }
-            tb.GotFocus -= textBox_GotFocus;
+
+            tb.GotFocus += textBox_GotFocus;
+
+            if(pomoc.IsChecked == true)
+            {
+                ponisti.ToolTip = "Poništavanje pretrage";
+            }
         }
 
         private void textBox_LostFocus(object sender, RoutedEventArgs e)
@@ -478,8 +485,15 @@ namespace HCI_projekat_2020
             {
                 tb.Text = "Pretraga...";
                 ponisti.IsEnabled = false;
+                ponisti.ToolTip = null;
             }
+
             tb.GotFocus += textBox_GotFocus;
+
+            if (pomoc.IsChecked == true)
+            {
+                ponisti.ToolTip = "Poništavanje pretrage";
+            }
 
             BitmapImage slika = new BitmapImage(new Uri("pack://application:,,,/lupa.png"));
             ImageBrush img = new ImageBrush(slika);
@@ -495,7 +509,11 @@ namespace HCI_projekat_2020
                 BitmapImage slika = new BitmapImage(new Uri("pack://application:,,,/x3.png"));
                 ImageBrush img = new ImageBrush(slika);
                 ponisti.Background = img;
-                ponisti.ToolTip = "Poništi pretragu";
+
+                if (pomoc.IsChecked == true)
+                {
+                    ponisti.ToolTip = "Poništavanje pretrage";
+                }
 
                 var ls2 = listView.ItemsSource.Cast<Dogadjaj>();
                 var dogadjaji2 = (from d2 in ls2 where d2.naziv.Contains(textBox.Text) select d2);
@@ -514,17 +532,26 @@ namespace HCI_projekat_2020
                 canvasFilters.Visibility = Visibility.Hidden;
                 buttonDoFilter.IsEnabled = false;
                 buttonDoFilter.Background = null;
+                buttonDoFilter.ToolTip = null;
             }
             else
             {
                 canvasFilters.Visibility = Visibility.Visible;
                 buttonDoFilter.IsEnabled = true;
 
+                if (pomoc.IsChecked == true)
+                {
+                    buttonDoFilter.ToolTip = "Filtracija";
+                }
+                else if (pomoc.IsChecked == false)
+                {
+                    buttonDoFilter.ToolTip = null;
+                }
+
                 BitmapImage slika = new BitmapImage(new Uri("pack://application:,,,/filter.png"));
                 ImageBrush img = new ImageBrush(slika);
                 img.Stretch = Stretch.Uniform;
                 buttonDoFilter.Background = img;
-               buttonDoFilter.ToolTip = "Filtriraj";
 
                 textBox.Text = "Pretraga...";
                 listView.ItemsSource = listaDog;
@@ -1069,5 +1096,43 @@ namespace HCI_projekat_2020
         }
 
         #endregion
+
+        #region Tooltips
+
+        private void pomoc_Checked(object sender, RoutedEventArgs e)
+        {
+            buttonTb1.ToolTip = "Dodavanje, izmena ili brisanje događaja";
+            buttonTb2.ToolTip = "Brisanje događaja, tipova događaja i etiketa";
+            buttonTb3.ToolTip = "Pretraga događaja, tipova događaja i etiketa";
+            mI1.ToolTip = "Dodavanje, izmena i brisanje događaja";
+            mI2.ToolTip = "Dodavanje, izmena i brisanje tipa događaja";
+            mI3.ToolTip = "Dodavanje, izmena i brisanje etikete događaja";
+            mI4.ToolTip = "Napusti aplikaciju";
+            komande.ToolTip = "Komande za manipulaciju resursima";
+            osvezi.ToolTip = "Povratak aplikacije u početno stanje";
+
+            var bc = new BrushConverter();
+            pomoc.Background = (Brush)bc.ConvertFrom("#FF000000");
+        }
+
+        private void pomoc_Unchecked(object sender, RoutedEventArgs e)
+        {
+            buttonTb1.ToolTip = null;
+            buttonTb2.ToolTip = null;
+            buttonTb3.ToolTip = null;
+            mI1.ToolTip = null;
+            mI2.ToolTip = null;
+            mI3.ToolTip = null;
+            mI4.ToolTip = null;
+            komande.ToolTip = null;
+            osvezi.ToolTip = null;
+            ponisti.ToolTip = null;
+            buttonDoFilter.ToolTip = null;
+
+            var bc = new BrushConverter();
+            pomoc.Background = (Brush)bc.ConvertFrom("#FFFFFFFF");
+        }
+        #endregion
+
     }
 }
