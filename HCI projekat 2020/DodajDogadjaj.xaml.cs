@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Windows.Shapes;
+using HCI_projekat_2020.Help;
 
 namespace HCI_projekat_2020
 {
@@ -509,6 +510,27 @@ namespace HCI_projekat_2020
             comboTip.Text = "Odaberite...";
             comboEtikete.Text = "Odaberite...";
             etiketaTxt.Text = "Nijedna";
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+
+            focusedControl = this;
+
+            string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+            HelpProvider.ShowHelp(str, this);
+
+        }
+
+        private void button8_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+
+            focusedControl = this;
+
+            string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+            HelpProvider.ShowHelp(str, this);
         }
 
         private void Window_Closed(object sender, EventArgs e)

@@ -10,6 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
 using System.IO;
 using System.Timers;
+using HCI_projekat_2020.Help;
 
 namespace HCI_projekat_2020
 {
@@ -190,7 +191,7 @@ namespace HCI_projekat_2020
             UkloniEntitet ukloniEntitet = new UkloniEntitet();
             ukloniEntitet.Show();
         }
-
+        //=======================================================================================
         private void pretraziEntitete_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
@@ -200,6 +201,16 @@ namespace HCI_projekat_2020
         {
             PretraziEntitete prE = new PretraziEntitete();
             prE.Show();
+        }
+        //======================================================================================
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+
+            focusedControl = this;
+
+            string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+            HelpProvider.ShowHelp(str, this);
         }
         #endregion
 
@@ -249,6 +260,16 @@ namespace HCI_projekat_2020
             {
                 canvasCreated(d);
             }
+        }
+
+        private void button8_Click(Object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+
+            focusedControl = this;
+
+            string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+            HelpProvider.ShowHelp(str, this);
         }
 
         #region DragDrop

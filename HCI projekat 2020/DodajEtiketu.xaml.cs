@@ -10,6 +10,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Controls;
 using System.Text.RegularExpressions;
+using HCI_projekat_2020.Help;
+using System.Windows.Input;
 
 
 namespace HCI_projekat_2020
@@ -233,6 +235,26 @@ namespace HCI_projekat_2020
             Color clr1 = (Color)ColorConverter.ConvertFromString("#FFFFFFFF");
             SolidColorBrush brush = new SolidColorBrush(clr1);
             grid1.Background = brush;
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+
+            focusedControl = this;
+
+            string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+            HelpProvider.ShowHelp(str, this);
+
+        }
+        private void button8_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+
+            focusedControl = this;
+
+            string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+            HelpProvider.ShowHelp(str, this);
         }
 
         #region GotFocus

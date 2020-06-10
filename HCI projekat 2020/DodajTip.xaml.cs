@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Windows.Shapes;
+using HCI_projekat_2020.Help;
 
 namespace HCI_projekat_2020
 {
@@ -285,6 +286,26 @@ namespace HCI_projekat_2020
             textBox1_Copy.Text = "Podrazumevana...";
             //image1.Source = new BitmapImage(new Uri("C:\\Users\\asd\\Desktop\\HCI projekat 2020\\HCI projekat 2020\\noimg.png"));
             image1.Source = new BitmapImage(new Uri("pack://application:,,,/noimg.png"));
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+
+            focusedControl = this;
+
+            string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+            HelpProvider.ShowHelp(str, this);
+
+        }
+        private void button8_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+
+            focusedControl = this;
+
+            string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+            HelpProvider.ShowHelp(str, this);
         }
 
         //prilikom gasenja prozora, serijalizacija u bin obliku

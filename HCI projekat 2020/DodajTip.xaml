@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_projekat_2020"
         xmlns:valid="clr-namespace:HCI_projekat_2020.Validacija"
+        xmlns:help="clr-namespace:HCI_projekat_2020.Help"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
         Title="DodajTip" Height="413" Width="520.765"
-        WindowStartupLocation="CenterScreen" Closed="Window_Closed">
+        WindowStartupLocation="CenterScreen" Closed="Window_Closed" help:HelpProvider.HelpKey="Tip">
 
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    
     <Grid Background="LightGray" Margin="0,0,-8,0" RenderTransformOrigin="0.742,0.53">
 
         <Label Content="Oznaka:" Height="23" HorizontalAlignment="Left" Margin="24,41,0,0" Name="label1" VerticalAlignment="Top" FontStyle="Italic" />

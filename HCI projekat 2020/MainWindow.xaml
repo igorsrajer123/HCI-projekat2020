@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_projekat_2020"
         xmlns:cmd="clr-namespace:HCI_projekat_2020.Komande"
+        xmlns:help="clr-namespace:HCI_projekat_2020.Help"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
-        Title="MainWindow" Height="603.03" Width="1257.995" Closed="Window_Closed">
+        Title="MainWindow" Height="603.03" Width="1257.995" Closed="Window_Closed" help:HelpProvider.HelpKey="Home Page">
 
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.ManipulacijaDogađajima" CanExecute="Dogadjaj_CanExecute" Executed="Dogadjaj_Executed"></CommandBinding>
@@ -17,6 +18,7 @@
         <CommandBinding Command="cmd:RoutedCommands.Izađi" CanExecute="Izadji_CanExecute" Executed="Izadji_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.UkloniEntitet" CanExecute="UkloniEntitet_CanExecute" Executed="UkloniEntitet_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.PretraziEntitete" CanExecute="pretraziEntitete_CanExecute" Executed="pretraziEntitete_Executed"></CommandBinding>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" ></CommandBinding>
     </Window.CommandBindings>
 
     <Window.Resources>
@@ -54,10 +56,10 @@
                     <MenuItem Name="mI1" Header="Manipulacija događajima" Command="cmd:RoutedCommands.ManipulacijaDogađajima" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje događaja koje izaberete iz liste postojećih."  ToolTipService.ShowDuration="2000"/>
                     <MenuItem Name="mI2"  Header="Manipulacija tipovima događaja" Command="cmd:RoutedCommands.ManipulacijaTipovima" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje tipa događaja"  ToolTipService.ShowDuration="2000"/>
                     <MenuItem Name="mI3"  Header="Manipulacija etiketama događaja" Command="cmd:RoutedCommands.ManipulacijaEtiketama" ToolTip="Pomoću ove komande moguće je vršiti dodavanje, izmenu ili brisanje etikete događaja"  ToolTipService.ShowDuration="2000"/>
-                    <MenuItem Name="mI4" Header="Izađi" ToolTip="Napusti aplikaciju"  ToolTipService.ShowDuration="2000" Command="cmd:RoutedCommands.Izađi"/>
+                    <MenuItem Name="mI4" Header="Izađi" ToolTip="Napustite aplikaciju"  ToolTipService.ShowDuration="2000" Command="cmd:RoutedCommands.Izađi"/>
                 </MenuItem>
                 <MenuItem Name="osvezi" Header="Osveži" Width="66" Click="osvezi_Click"/>
-                <MenuItem Header="Help" Width="66"/>
+                <MenuItem Header="Help" Width="45" Margin="1045,0,0,0" Click="button8_Click"/>
             </Menu>
 
             <ToolBar HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="1" x:Name="toolBar" Background="LightGray" Height="36" VerticalAlignment="Top" Margin="-1256,22,0,-1" RenderTransformOrigin="0.5,0.5" Width="1278">
@@ -204,6 +206,7 @@
 
             </TreeView>
         </Canvas>
+
 
     </Canvas>
 </Window>

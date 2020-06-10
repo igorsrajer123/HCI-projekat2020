@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_projekat_2020"
         xmlns:valid="clr-namespace:HCI_projekat_2020.Validacija"
+        xmlns:help="clr-namespace:HCI_projekat_2020.Help"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen"
         Title="Dodavanje događaja" Height="584.227" Width="696.727" Closed="Window_Closed">
 
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    
     <Grid Background="LightGray"  Margin="0,0,-6,-2">
         <Label Content="Oznaka: " Height="28" HorizontalAlignment="Left" Margin="16,51,0,0" Name="label1" VerticalAlignment="Top" FontStyle="Italic" />
         <Label Content="Datum održavanja:" Height="28" HorizontalAlignment="Left" Margin="246,125,0,0" Name="label3" VerticalAlignment="Top" FontStyle="Italic" Width="120" />

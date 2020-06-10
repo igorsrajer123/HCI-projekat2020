@@ -5,10 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_projekat_2020"
         xmlns:valid="clr-namespace:HCI_projekat_2020.Validacija"
+        xmlns:help="clr-namespace:HCI_projekat_2020.Help"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
         Title="DodajEtiketu" Height="440.021" Width="526.203"
         WindowStartupLocation="CenterScreen" Closed="Window_Closed">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    
     <Grid  Name="grid123" Background="LightGray">
         <Label Content="Dodavanje nove etikete" Height="28" HorizontalAlignment="Left" Name="label4" VerticalAlignment="Top" Width="265" FontWeight="Bold" FontStyle="Italic" Margin="24,0,0,0" />
         <Label Content="Oznaka:" Height="28" HorizontalAlignment="Left" Margin="24,43,0,0" Name="label1" VerticalAlignment="Top" FontStyle="Italic" />

@@ -31,6 +31,52 @@ C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\bin\Debug\zh-Hans\Syste
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\UkloniEntitet.g.cs
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\UkloniEntitet.baml
-C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\HCI projekat 2020.csprojResolveAssemblyReference.cache
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\PretraziEntitete.g.cs
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\PretraziEntitete.baml
+C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\Help\HelpWindow.g.cs
+C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\Help\HelpWindow.baml
+C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\HCI projekat 2020_Content.g.cs
+C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\bin\Debug\Help\Home Page.htm
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\Help\error.html
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\Help\Home Page.htm
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\HCI projekat 2020.exe.config
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\HCI projekat 2020.exe
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\HCI projekat 2020.pdb
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\HCI projekat 2020.csprojResolveAssemblyReference.cache
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\Help\HelpWindow.baml
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\DodajDogadjaj.g.cs
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\DodajEtiketu.g.cs
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\DodajTip.g.cs
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\Help\HelpWindow.g.cs
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\MainWindow.g.cs
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\PretraziEntitete.g.cs
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\UkloniEntitet.g.cs
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\App.g.cs
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\HCI projekat 2020_Content.g.cs
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\HCI projekat 2020_MarkupCompile.cache
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\HCI projekat 2020_MarkupCompile.lref
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\DodajDogadjaj.baml
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\DodajEtiketu.baml
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\DodajTip.baml
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\MainWindow.baml
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\PretraziEntitete.baml
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\UkloniEntitet.baml
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\HCI projekat 2020.g.resources
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\HCI_projekat_2020.Properties.Resources.resources
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\HCI projekat 2020.csproj.GenerateResource.Cache
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\HCI projekat 2020.exe
+C:\Users\asd\Desktop\HCIprojekat2020\HCI projekat 2020\obj\Debug\HCI projekat 2020.pdb
+C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\bin\Debug\Help\Tip.htm
+C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\bin\Debug\Help\error.htm

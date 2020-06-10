@@ -70,6 +70,11 @@
       <DependentUpon>DodajTip.xaml</DependentUpon>
     </Compile>
     <Compile Include="EtiketaDogadjaja.cs" />
+    <Compile Include="Help\HelpProvider.cs" />
+    <Compile Include="Help\HelpWindow.xaml.cs">
+      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Help\JavaScriptControlHelper.cs" />
     <Compile Include="PretraziEntitete.xaml.cs">
       <DependentUpon>PretraziEntitete.xaml</DependentUpon>
     </Compile>
@@ -93,6 +98,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DodajTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\HelpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,9 +162,6 @@
     <Resource Include="colorblindWorld.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Help\" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="lupa.png" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +175,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Help\error.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\Home Page.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\Tip.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
