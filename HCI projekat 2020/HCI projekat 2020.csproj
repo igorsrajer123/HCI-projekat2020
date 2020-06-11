@@ -177,10 +177,39 @@
     <Resource Include="filter.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Help\tip5.png" />
+    <Resource Include="Help\tip4.png" />
+    <Resource Include="Help\tip2.png" />
+    <Resource Include="Help\tip3.png" />
+    <Resource Include="Help\tip6.png" />
+    <Resource Include="Help\tip.png" />
+    <Resource Include="help.png" />
+    <Content Include="Help\Brisanje.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Help\dog.png" />
+    <Resource Include="Help\dog2.png" />
+    <Resource Include="Help\dog3.png" />
+    <Resource Include="Help\dog4.png" />
+    <Resource Include="Help\dog5.png" />
+    <Resource Include="Help\dog6.png" />
+    <Content Include="Help\Dogadjaj.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Help\error.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Help\Etiketa.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Help\etiketa2.png" />
+    <Resource Include="Help\etiketa3.png" />
+    <Resource Include="Help\etiketa4.png" />
+    <Resource Include="Help\etiketa.png" />
     <Content Include="Help\Home Page.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\Pretraga.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Help\Tip.htm">

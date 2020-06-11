@@ -8,8 +8,8 @@
         xmlns:help="clr-namespace:HCI_projekat_2020.Help"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Title="DodajEtiketu" Height="440.021" Width="526.203"
-        WindowStartupLocation="CenterScreen" Closed="Window_Closed">
+        Title="DodajEtiketu" Height="466.021" Width="526.203"
+        WindowStartupLocation="CenterScreen" Closed="Window_Closed" help:HelpProvider.HelpKey="Etiketa">
 
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
@@ -77,6 +77,12 @@
             </Grid.ColumnDefinitions>
             <Border BorderBrush="Black" BorderThickness="2" Grid.ColumnSpan="3"/>
         </Grid>
+
+        <Button x:Name="button8" Margin="469,393,4,5" BorderThickness="0" Click="button8_Click">
+            <Button.Background>
+                <ImageBrush Stretch="Fill" ImageSource="pack://application:,,,/help.png" AlignmentY="Center" AlignmentX="Center"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

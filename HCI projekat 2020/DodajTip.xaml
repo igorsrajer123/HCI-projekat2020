@@ -8,7 +8,7 @@
         xmlns:help="clr-namespace:HCI_projekat_2020.Help"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Title="DodajTip" Height="413" Width="520.765"
+        Title="DodajTip" Height="449" Width="520.765"
         WindowStartupLocation="CenterScreen" Closed="Window_Closed" help:HelpProvider.HelpKey="Tip">
 
     <Window.CommandBindings>
@@ -91,5 +91,12 @@
         <Button Content="Odustani" Height="23" HorizontalAlignment="Left" Margin="397,328,0,0" x:Name="button3_Copy" VerticalAlignment="Top" Width="96" Click="odustani_Click"/>
         <Button Content="Izmeni" Height="23" HorizontalAlignment="Left" Margin="397,272,0,0" x:Name="button2_Copy1" VerticalAlignment="Top" Width="96" Click="izmeni_Click"/>
         <Button Content="Obrši" Height="23" HorizontalAlignment="Left" Margin="397,300,0,0" x:Name="button2_Copy2" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.5,0.5" Click="obrisi_Click"/>
+
+        <Button x:Name="button8" Margin="471,379,10,3" BorderThickness="0" Click="button8_Click">
+            <Button.Background>
+                <ImageBrush Stretch="Fill" ImageSource="pack://application:,,,/help.png" AlignmentY="Center" AlignmentX="Center"/>
+            </Button.Background>
+        </Button>
+    
     </Grid>
 </Window>

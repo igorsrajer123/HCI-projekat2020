@@ -8,8 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/brisanje.htm")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/dogadjaj.htm")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/error.htm")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/etiketa.htm")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/home%20page.htm")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/pretraga.htm")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/tip.htm")]
 
 
