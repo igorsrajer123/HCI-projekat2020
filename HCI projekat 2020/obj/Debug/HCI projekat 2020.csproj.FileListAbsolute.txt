@@ -85,3 +85,4 @@ C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\bin\Debug\Help\Dogadjaj
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\bin\Debug\Help\Etiketa.htm
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\bin\Debug\Help\Pretraga.htm
 C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\obj\Debug\HCI projekat 2020.csprojResolveAssemblyReference.cache
+C:\Users\asd\Desktop\HCI projekat 2020\HCI projekat 2020\bin\Debug\Help\Filtriranje.htm

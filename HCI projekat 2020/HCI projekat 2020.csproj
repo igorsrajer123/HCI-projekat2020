@@ -177,6 +177,9 @@
     <Resource Include="filter.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Help\ukloni1.png" />
+    <Resource Include="Help\ukloni2.png" />
+    <Resource Include="Help\ukloni3.png" />
     <Resource Include="Help\tip5.png" />
     <Resource Include="Help\tip4.png" />
     <Resource Include="Help\tip2.png" />
@@ -206,12 +209,29 @@
     <Resource Include="Help\etiketa3.png" />
     <Resource Include="Help\etiketa4.png" />
     <Resource Include="Help\etiketa.png" />
+    <Resource Include="Help\fil1.png" />
+    <Resource Include="Help\fil2.png" />
+    <Resource Include="Help\fil3.png" />
+    <Resource Include="Help\fil4.png" />
+    <Content Include="Help\Filtriranje.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Help\Home Page.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Help\pret1.png" />
+    <Resource Include="Help\pret2.png" />
+    <Resource Include="Help\pret3.png" />
     <Content Include="Help\Pretraga.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Help\svet1.png" />
+    <Resource Include="Help\svet2.png" />
+    <Resource Include="Help\svet3.png" />
+    <Resource Include="Help\svet4.png" />
+    <Resource Include="Help\svet5.png" />
+    <Resource Include="Help\svet6.png" />
+    <Resource Include="Help\svet7.png" />
     <Content Include="Help\Tip.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

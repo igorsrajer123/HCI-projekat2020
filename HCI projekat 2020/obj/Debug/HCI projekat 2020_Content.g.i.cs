@@ -12,6 +12,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/dogadjaj.htm")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/error.htm")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/etiketa.htm")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/filtriranje.htm")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/home%20page.htm")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/pretraga.htm")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("help/tip.htm")]
