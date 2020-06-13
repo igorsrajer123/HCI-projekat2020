@@ -89,6 +89,9 @@
     <Compile Include="Validacija\ValidacijaOznaka.cs" />
     <Compile Include="Validacija\ValidacijaOznakaBroj.cs" />
     <Compile Include="Validacija\ValidacijaPraznoPolje.cs" />
+    <Compile Include="Wizard.xaml.cs">
+      <DependentUpon>Wizard.xaml</DependentUpon>
+    </Compile>
     <Page Include="DodajDogadjaj.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UkloniEntitet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wizard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -177,6 +184,11 @@
     <Resource Include="filter.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="w2.png" />
+    <Resource Include="w5.png" />
+    <Resource Include="w1.png" />
+    <Resource Include="w3.png" />
+    <Resource Include="w4.png" />
     <Resource Include="Help\ukloni1.png" />
     <Resource Include="Help\ukloni2.png" />
     <Resource Include="Help\ukloni3.png" />

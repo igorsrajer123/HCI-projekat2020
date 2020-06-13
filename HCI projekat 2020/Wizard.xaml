@@ -1,0 +1,31 @@
+﻿<Window x:Class="HCI_projekat_2020.Wizard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_projekat_2020"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Title="Upoznavanje" Height="594.482" Width="673.057">
+    <Grid Background="LightGray">
+
+        <Label Margin="0,0,0,498" FontSize="25" FontFamily="Sylfaen"> Evidencija svetskih događaja </Label>
+
+        <Grid Margin="0,37,0,124">
+            <Image x:Name="slikaWizard" HorizontalAlignment="Left" Stretch="Fill" Source="svet.jpg"/>
+        </Grid>
+
+      
+
+        <Grid Margin="0,519,0,0">
+            <Button x:Name="odustaniBtn" Click="odustaniBtn_Click" Margin="10,0,589,10" Content="Napusti"  BorderBrush="Black" BorderThickness="2" > </Button>
+            <Button x:Name="daljeBtn" Margin="597,0,10,10" Content="Dalje" Click="daljeBtn_Click"/>
+            <Button x:Name="gotovoBtn" Margin="597,0,10,10" Content="Gotovo" Visibility="Hidden" BorderBrush="Black" BorderThickness="2" Click="odustaniBtn_Click" />
+            <Button x:Name="nazadBtn" Margin="537,0,70,10" Content="Nazad" Visibility="Visible" Click="nazadBtn_Click" />
+        </Grid>
+        
+        
+        
+    </Grid>
+</Window>

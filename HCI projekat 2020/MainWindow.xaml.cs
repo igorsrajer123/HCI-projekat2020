@@ -35,6 +35,8 @@ namespace HCI_projekat_2020
 
     public partial class MainWindow : Window
     {
+        #region Fields
+
         private Dugme draggedItem;
 
         private bool dragging = false;
@@ -51,6 +53,10 @@ namespace HCI_projekat_2020
         public static List<Dogadjaj> filterEtiketa = new List<Dogadjaj>();
         public static List<Dogadjaj> filterHumKar = new List<Dogadjaj>();
         public static List<Dogadjaj> filterPosecenost = new List<Dogadjaj>();
+
+        public static bool firstInit = true;
+
+        #endregion
 
         public MainWindow()
         {
@@ -118,6 +124,7 @@ namespace HCI_projekat_2020
             stream3.Close();
             #endregion
 
+            //refreshuj dogadjaje u tabeli i na mapi kad se oni dodaju
             listView.ItemContainerGenerator.ItemsChanged += listView_ItemUpdated;
 
             foreach (Dogadjaj d in listaDog)
@@ -125,7 +132,23 @@ namespace HCI_projekat_2020
                canvasCreated(d);
             }
 
+            //vreme i datum statusne linije
             textBlock.Text = DateTime.Now.ToString("dddd , MMM dd yyyy, hh:mm tt");
+
+            //wizard za upoznavanje
+            this.Loaded += mainWindow_Loaded;
+        }
+
+        private void mainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (firstInit)
+            {
+                var w = new Wizard();
+                w.ShowDialog();
+            }else
+            {
+
+            }
         }
 
         private void Window_Closed(object sender, EventArgs e)
