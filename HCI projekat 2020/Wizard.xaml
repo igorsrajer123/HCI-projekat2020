@@ -7,16 +7,69 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
-        Title="Upoznavanje" Height="594.482" Width="673.057">
+        Title="Dobrodošli" Height="594.482" Width="673.057">
     <Grid Background="LightGray">
 
         <Label Margin="0,0,0,498" FontSize="25" FontFamily="Sylfaen"> Evidencija svetskih događaja </Label>
 
         <Grid Margin="0,37,0,124">
-            <Image x:Name="slikaWizard" HorizontalAlignment="Left" Stretch="Fill" Source="svet.jpg"/>
+            <Image x:Name="slikaWizard" HorizontalAlignment="Left" Stretch="Fill" Source="svet.jpg" />
         </Grid>
 
-      
+        <TextBlock x:Name="tbW1" Margin="10,441,10,51" FontFamily="Sylfaen" FontSize="16" Visibility="Hidden">
+               Svi kreirani događaji prikazani su u tabeli sa leve strane(crna strelica). Ti isti događaji prikazani <LineBreak/>su i na mapi  Sveta pomoću
+               njihovih simboličkih oznaka(bela strelica). Pored ovih, moguće je <LineBreak/>praviti  i nove događaje ili ukloniti/izmeniti 
+               postojeće.
+        </TextBlock>
+
+        <TextBlock x:Name="tbW2" Margin="10,441,10,51" FontFamily="Sylfaen" FontSize="16" Visibility="Hidden">
+            Ove simboličke predstave događaja moguće je levim klikom miša prevlačiti na karti(slika iznad), <LineBreak/>
+            u zavisnosti od toga gde se oni održavaju. Postavljanjem miša preko svakog događaja prikazuju  <LineBreak/>
+            se njihov naziv i oznaka, radi njihovog lakšeg razlikovanja i prepoznavanja.
+        </TextBlock>
+
+        <TextBlock x:Name="tbW3" Margin="10,441,10,51" FontFamily="Sylfaen" FontSize="16" Visibility="Hidden">
+           Opcija označena crnom strelicom otvara dijalog za kreiranje novog, ili brisanje i izmenu već <LineBreak/>
+           postojećeg događaja. Takođe, ovaj dijalog se može prikazati prečicom CTRL+D ili korišćenjem <LineBreak/>
+           opcija iz menija: Komande > Manipulacija događajima.
+        </TextBlock>
+
+        <TextBlock x:Name="tbW4" Margin="461,37,10,36" FontFamily="Sylfaen" FontSize="16" Visibility="Hidden">
+            Prikaz dijaloga za kreiranje, <LineBreak/>
+            izmenu i brisanje događaja. <LineBreak/>
+            Svaki događaj mora imati <LineBreak/>
+            svoj naziv, oznaku i tip, dok <LineBreak/>
+            polja poput grada, države, <LineBreak/>
+            opisa itd. nije obavezno <LineBreak/>
+            popuniti. 
+            <LineBreak/><LineBreak/>
+            Ukoliko se u toku kreiranja <LineBreak/>
+            samog događaja izabere <LineBreak/>
+            opcija "Odustani", vrednosti <LineBreak/> svih polja 
+            se vraćaju na <LineBreak/> početne, i mogu
+            se dalje <LineBreak/>unositi
+            podaci o novom <LineBreak/> događaju. <LineBreak/> <LineBreak/>
+            
+            Simbol događaja na mapi <LineBreak/>
+            predstavlja njegova ikonica <LineBreak/>
+            koju je moguće izabrati
+            . <LineBreak/> Ukoliko to nije
+            učinjeno,  <LineBreak/> koristi se ikonica
+            izabranog <LineBreak/> tipa.
+        </TextBlock>
+
+        <TextBlock x:Name="tbW4B" Margin="10,441,167,51" FontFamily="Sylfaen" FontSize="16" Visibility="Hidden">
+            Svi kreirani događaji i njihovi atributi prikazuju se u tabeli u dnu <LineBreak/>dijaloga. 
+            Svaki red tabele predstavlja jedan događaj 
+            i oni se mogu<LineBreak/>  selektovati a dalje i obrisati/izmeniti ukoliko je to neophodno.
+
+        </TextBlock>
+
+        <TextBlock x:Name="tbW5" Margin="10,441,10,51" FontFamily="Sylfaen" FontSize="16" Visibility="Hidden">
+            Ukoliko su svi podaci uneti ispravno, događaj je kreiran i biće prikazan u glavnom prozoru(tabela  <LineBreak/>
+            sa leve strane, crna strelica). Uz njegovo pojavljivanje u tabeli, kreiraće se i njegova simbolička <LineBreak/>
+            predstava na samoj mapi(bela strelica) koju je dalje moguće premestiti na bilo koju lokaciju.
+        </TextBlock>
 
         <Grid Margin="0,519,0,0">
             <Button x:Name="odustaniBtn" Click="odustaniBtn_Click" Margin="10,0,589,10" Content="Napusti"  BorderBrush="Black" BorderThickness="2" > </Button>

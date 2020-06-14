@@ -68,16 +68,16 @@
                 </ListView.View>
             </ListView>
 
-            <TextBox x:Name="nazDog" Width="118" Canvas.Left="30" Canvas.Top="368" Text="Pretraga po nazivu..." GotFocus="nazDog_GotFocus" LostFocus="nazDog_LostFocus" TextChanged="nazDog_TextChanged"/>
-            <TextBox x:Name="oznDog" Width="118" Canvas.Left="30" Canvas.Top="391" Text="Pretraga po oznaci..." GotFocus="oznDog_GotFocus" LostFocus="oznDog_LostFocus" TextChanged="oznDog_TextChanged"/>
-            <TextBox x:Name="nazTip" Width="118" Canvas.Left="257" Canvas.Top="368" Text="Pretraga po nazivu..." GotFocus="nazTip_GotFocus" LostFocus="nazTip_LostFocus" TextChanged="nazTip_TextChanged"/>
-            <TextBox x:Name="oznTip" Width="118" Canvas.Left="257" Canvas.Top="391" Text="Pretraga po oznaci..." GotFocus="oznTip_GotFocus" LostFocus="oznTip_LostFocus" TextChanged="oznTip_TextChanged"/>
-            <TextBox x:Name="oznEt" Width="118" Canvas.Left="442" Canvas.Top="368" Text="Pretraga po oznaci..." GotFocus="oznEt_GotFocus" LostFocus="oznEt_LostFocus" TextChanged="oznEt_TextChanged" />
-            <TextBox  x:Name="tipDog" Width="118" Canvas.Left="30" Canvas.Top="414" Text="Pretraga po tipu..." GotFocus="tipDog_GotFocus" LostFocus="tipDog_LostFocus" TextChanged="tipDog_TextChanged"/>
+            <TextBox x:Name="nazDog" Width="118" Canvas.Left="30" Canvas.Top="368" Text="Pretraga po nazivu..." GotFocus="nazDog_GotFocus"  TextChanged="nazDog_TextChanged"/>
+            <TextBox x:Name="oznDog" Width="118" Canvas.Left="30" Canvas.Top="391" Text="Pretraga po oznaci..." GotFocus="oznDog_GotFocus" TextChanged="oznDog_TextChanged"/>
+            <TextBox x:Name="nazTip" Width="118" Canvas.Left="257" Canvas.Top="368" Text="Pretraga po nazivu..." GotFocus="nazTip_GotFocus"  TextChanged="nazTip_TextChanged"/>
+            <TextBox x:Name="oznTip" Width="118" Canvas.Left="257" Canvas.Top="391" Text="Pretraga po oznaci..." GotFocus="oznTip_GotFocus"  TextChanged="oznTip_TextChanged"/>
+            <TextBox x:Name="oznEt" Width="118" Canvas.Left="442" Canvas.Top="368" Text="Pretraga po oznaci..." GotFocus="oznEt_GotFocus"  TextChanged="oznEt_TextChanged" />
+            <TextBox  x:Name="tipDog" Width="118" Canvas.Left="30" Canvas.Top="414" Text="Pretraga po tipu..." GotFocus="tipDog_GotFocus"  TextChanged="tipDog_TextChanged"/>
 
             <Button x:Name="uklNazDog" Height="18" Width="27" Canvas.Left="3" Canvas.Top="345" IsEnabled="False" Background="LightGray" Click="ponisti1_Click" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle}" />
             <Button x:Name="uklNazTip" Height="18" Width="27" Canvas.Left="230" Canvas.Top="345" IsEnabled="False" Background="Transparent" Click="ponisti11_Click" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle}"/>
-            <Button x:Name="uklOznEt" Height="18" Width="27" Canvas.Left="415" Canvas.Top="345" IsEnabled="False" Background="Transparent" RenderTransformOrigin="0.526,0.444" Click="ponisti111_Click" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle}"/>
+            <Button x:Name="uklOznEt" Height="18" Width="27" Canvas.Left="415" Canvas.Top="345" IsEnabled="False" Background="Transparent" RenderTransformOrigin="0.526,0.444" Click="uklOznEt_Click" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle}"/>
 
         </Canvas>
 

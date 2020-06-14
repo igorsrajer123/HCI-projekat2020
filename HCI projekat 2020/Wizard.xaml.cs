@@ -38,24 +38,32 @@ namespace HCI_projekat_2020
                 ++click;
                 nazadBtn.Visibility = Visibility.Visible;
                 slikaWizard.Source = new BitmapImage(new Uri("pack://application:,,,/w1.png"));
-                slikaWizard.Stretch = Stretch.UniformToFill;  
+                slikaWizard.Stretch = Stretch.UniformToFill;
+                tbW1.Visibility = Visibility.Visible;  
             }
             else if(click == 1)
             {
                 slikaWizard.Source = new BitmapImage(new Uri("pack://application:,,,/w2.png"));
                 slikaWizard.Stretch = Stretch.UniformToFill;
+                tbW1.Visibility = Visibility.Hidden;
+                tbW2.Visibility = Visibility.Visible;
                 ++click;
             }
             else if(click == 2)
             {
                 slikaWizard.Source = new BitmapImage(new Uri("pack://application:,,,/w3.png"));
                 slikaWizard.Stretch = Stretch.UniformToFill;
+                tbW2.Visibility = Visibility.Hidden;
+                tbW3.Visibility = Visibility.Visible;
                 ++click;
             }
             else if (click == 3)
             {
                 slikaWizard.Source = new BitmapImage(new Uri("pack://application:,,,/w4.png"));
                 slikaWizard.Stretch = Stretch.Uniform;
+                tbW3.Visibility = Visibility.Hidden;
+                tbW4.Visibility = Visibility.Visible;
+                tbW4B.Visibility = Visibility.Visible;
                 ++click;
             }
             else if (click == 4)
@@ -65,6 +73,9 @@ namespace HCI_projekat_2020
                 slikaWizard.Stretch = Stretch.UniformToFill;
                 daljeBtn.Visibility = Visibility.Hidden;
                 gotovoBtn.Visibility = Visibility.Visible;
+                tbW4.Visibility = Visibility.Hidden;
+                tbW4B.Visibility = Visibility.Hidden;
+                tbW5.Visibility = Visibility.Visible;
             }
         }
 
@@ -75,25 +86,34 @@ namespace HCI_projekat_2020
                 --click;
                 nazadBtn.Visibility = Visibility.Hidden;
                 slikaWizard.Source = new BitmapImage(new Uri("pack://application:,,,/svet.jpg"));
-                slikaWizard.Stretch = Stretch.UniformToFill;             
+                slikaWizard.Stretch = Stretch.UniformToFill;
+                tbW1.Visibility = Visibility.Hidden;         
             }
             else if (click == 2)
             {
                 --click;
                 slikaWizard.Source = new BitmapImage(new Uri("pack://application:,,,/w1.png"));
                 slikaWizard.Stretch = Stretch.UniformToFill;
+                tbW2.Visibility = Visibility.Hidden;
+                tbW1.Visibility = Visibility.Visible;
             }
             else if(click == 3)
             {
                 --click;
                 slikaWizard.Source = new BitmapImage(new Uri("pack://application:,,,/w2.png"));
                 slikaWizard.Stretch = Stretch.UniformToFill;
+                tbW3.Visibility = Visibility.Hidden;
+                tbW2.Visibility = Visibility.Visible;
+
             }
             else if (click == 4)
             {
                 --click;
                 slikaWizard.Source = new BitmapImage(new Uri("pack://application:,,,/w3.png"));
                 slikaWizard.Stretch = Stretch.UniformToFill;
+                tbW4.Visibility = Visibility.Hidden;
+                tbW4B.Visibility = Visibility.Hidden;
+                tbW3.Visibility = Visibility.Visible;
             }
             else if (click == 5)
             {
@@ -102,6 +122,9 @@ namespace HCI_projekat_2020
                 daljeBtn.Visibility = Visibility.Visible;
                 slikaWizard.Source = new BitmapImage(new Uri("pack://application:,,,/w4.png"));
                 slikaWizard.Stretch = Stretch.Uniform;
+                tbW5.Visibility = Visibility.Hidden;
+                tbW4.Visibility = Visibility.Visible;
+                tbW4B.Visibility = Visibility.Visible;
             }
         }
    }

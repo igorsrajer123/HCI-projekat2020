@@ -47,6 +47,7 @@ namespace HCI_projekat_2020
 
             InitializeComponent();
 
+            #region Ucitavanje
             //ucitavanje dogadjaja
             FileStream stream = new FileStream("data1.bin", FileMode.OpenOrCreate, FileAccess.Read);
             BinaryFormatter bin = new BinaryFormatter();
@@ -89,6 +90,7 @@ namespace HCI_projekat_2020
             }
             stream2.Close();
 
+            #endregion
         }
 
         #region PonistiPretragu
@@ -114,16 +116,17 @@ namespace HCI_projekat_2020
             uklNazTip.Background = Brushes.LightGray;
         }
 
-        private void ponisti111_Click(object sender, RoutedEventArgs e)
+        private void uklOznEt_Click(object sender, RoutedEventArgs e)
         {
+            
             if (!oznEt.Text.Equals("Pretraga po oznaci..."))
             {
                 oznEt.Text = "Pretraga po oznaci...";
                 listView3.ItemsSource = listaEt;
             }
 
-            uklOznEt.IsEnabled = false;
-            uklOznEt.Background = Brushes.LightGray;
+           uklOznEt.IsEnabled = false;
+           uklOznEt.Background = Brushes.LightGray;
         }
 
         #endregion
@@ -136,7 +139,7 @@ namespace HCI_projekat_2020
             {
                 tb.Text = string.Empty;
             }
-            tb.GotFocus -= nazDog_GotFocus;
+            tb.GotFocus += nazDog_GotFocus;
 
             uklNazDog.IsEnabled = true;
 
@@ -144,7 +147,6 @@ namespace HCI_projekat_2020
             ImageBrush img = new ImageBrush(slika);
             img.Stretch = Stretch.Uniform;
             uklNazDog.Background = img;
-            uklNazDog.ToolTip = "Poništi pretragu";
         }
 
         private void oznDog_GotFocus(object sender, RoutedEventArgs e)
@@ -154,7 +156,7 @@ namespace HCI_projekat_2020
             {
                 tb.Text = string.Empty;
             }
-            tb.GotFocus -= oznDog_GotFocus;
+            tb.GotFocus += oznDog_GotFocus;
 
             uklNazDog.IsEnabled = true;
 
@@ -162,7 +164,6 @@ namespace HCI_projekat_2020
             ImageBrush img = new ImageBrush(slika);
             img.Stretch = Stretch.Uniform;
             uklNazDog.Background = img;
-            uklNazDog.ToolTip = "Poništi pretragu";
         }
 
         private void tipDog_GotFocus(object sender, RoutedEventArgs e)
@@ -172,7 +173,7 @@ namespace HCI_projekat_2020
             {
                 tb.Text = string.Empty;
             }
-            tb.GotFocus -= tipDog_GotFocus;
+            tb.GotFocus += tipDog_GotFocus;
 
             uklNazDog.IsEnabled = true;
 
@@ -180,7 +181,6 @@ namespace HCI_projekat_2020
             ImageBrush img = new ImageBrush(slika);
             img.Stretch = Stretch.Uniform;
             uklNazDog.Background = img;
-            uklNazDog.ToolTip = "Poništi pretragu";
         }
 
         private void nazTip_GotFocus(object sender, RoutedEventArgs e)
@@ -190,7 +190,7 @@ namespace HCI_projekat_2020
             {
                 tb.Text = string.Empty;
             }
-            tb.GotFocus -= nazTip_GotFocus;
+            tb.GotFocus += nazTip_GotFocus;
 
             uklNazTip.IsEnabled = true;
 
@@ -198,7 +198,6 @@ namespace HCI_projekat_2020
             ImageBrush img = new ImageBrush(slika);
             img.Stretch = Stretch.Uniform;
             uklNazTip.Background = img;
-            uklNazTip.ToolTip = "Poništi pretragu";
         }
 
         private void oznTip_GotFocus(object sender, RoutedEventArgs e)
@@ -208,7 +207,7 @@ namespace HCI_projekat_2020
             {
                 tb.Text = string.Empty;
             }
-            tb.GotFocus -= oznTip_GotFocus;
+            tb.GotFocus += oznTip_GotFocus;
 
             uklNazTip.IsEnabled = true;
 
@@ -216,7 +215,6 @@ namespace HCI_projekat_2020
             ImageBrush img = new ImageBrush(slika);
             img.Stretch = Stretch.Uniform;
             uklNazTip.Background = img;
-            uklNazTip.ToolTip = "Poništi pretragu";
         }
 
         private void oznEt_GotFocus(object sender, RoutedEventArgs e)
@@ -226,7 +224,8 @@ namespace HCI_projekat_2020
             {
                 tb.Text = string.Empty;
             }
-            tb.GotFocus -= oznEt_GotFocus;
+
+            tb.GotFocus += oznEt_GotFocus;
 
             uklOznEt.IsEnabled = true;
 
@@ -234,7 +233,6 @@ namespace HCI_projekat_2020
             ImageBrush img = new ImageBrush(slika);
             img.Stretch = Stretch.Uniform;
             uklOznEt.Background = img;
-            uklOznEt.ToolTip = "Poništi pretragu";
         }
 
         #endregion

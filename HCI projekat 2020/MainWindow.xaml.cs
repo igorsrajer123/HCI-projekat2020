@@ -124,7 +124,7 @@ namespace HCI_projekat_2020
             stream3.Close();
             #endregion
 
-            //refreshuj dogadjaje u tabeli i na mapi kad se oni dodaju
+            //refreshuj dogadjaje u tabeli i na mapi kad se oni dodaju/uklanjaju
             listView.ItemContainerGenerator.ItemsChanged += listView_ItemUpdated;
 
             foreach (Dogadjaj d in listaDog)
@@ -562,7 +562,14 @@ namespace HCI_projekat_2020
                 var ls2 = listView.ItemsSource.Cast<Dogadjaj>();
                 var dogadjaji2 = (from d2 in ls2 where d2.naziv.Contains(textBox.Text) select d2);
                 listView.ItemsSource = dogadjaji2;
-                listView.InvalidateVisual();                  
+                listView.InvalidateVisual();
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in dogadjaji2)
+                {
+                    canvasCreated(d);
+                }
             }
         }
         #endregion
@@ -641,76 +648,181 @@ namespace HCI_projekat_2020
             if(filterTip2.Any() && !filterEtiketa2.Any() && !filterHumKar2.Any() && !filterPosecenost2.Any())
             {
                 listView.ItemsSource = filterTip2;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in filterTip2)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (!filterTip2.Any() && !filterEtiketa2.Any() && !filterHumKar2.Any() && !filterPosecenost2.Any())
             {
                 listView.ItemsSource = listaDog;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in listaDog)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (!filterTip2.Any() && filterEtiketa2.Any() && !filterHumKar2.Any() && !filterPosecenost2.Any())
             {
                 listView.ItemsSource = filterEtiketa2;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in filterEtiketa2)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (!filterTip2.Any() && !filterEtiketa2.Any() && filterHumKar2.Any() && !filterPosecenost2.Any())
             {
                 listView.ItemsSource = filterHumKar2;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in filterHumKar2)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (!filterTip2.Any() && !filterEtiketa2.Any() && !filterHumKar2.Any() && filterPosecenost2.Any())
             {
                 listView.ItemsSource = filterPosecenost2;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in filterPosecenost2)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (filterTip2.Any() && filterEtiketa2.Any() && !filterHumKar2.Any() && !filterPosecenost2.Any())
             {
                 var d1 = filterTip2.Intersect<Dogadjaj>(filterEtiketa2);
                 listView.ItemsSource = d1;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d1)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (filterTip2.Any() && !filterEtiketa2.Any() && filterHumKar2.Any() && !filterPosecenost2.Any())
             {
                 var d1 = filterTip2.Intersect<Dogadjaj>(filterHumKar2);
                 listView.ItemsSource = d1;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d1)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (filterTip2.Any() && !filterEtiketa2.Any() && !filterHumKar2.Any() && filterPosecenost2.Any())
             {
                 var d1 = filterTip2.Intersect<Dogadjaj>(filterPosecenost2);
                 listView.ItemsSource = d1;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d1)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (!filterTip2.Any() && filterEtiketa2.Any() && filterHumKar2.Any() && !filterPosecenost2.Any())
             {
                 var d1 =filterEtiketa2.Intersect<Dogadjaj>(filterHumKar2);
                 listView.ItemsSource = d1;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d1)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (!filterTip2.Any() && filterEtiketa2.Any() && !filterHumKar2.Any() && filterPosecenost2.Any())
             {
                 var d1 = filterEtiketa2.Intersect<Dogadjaj>(filterPosecenost2);
                 listView.ItemsSource = d1;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d1)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (!filterTip2.Any() && !filterEtiketa2.Any() && filterHumKar2.Any() && filterPosecenost2.Any())
             {
                 var d1 = filterHumKar2.Intersect<Dogadjaj>(filterPosecenost2);
                 listView.ItemsSource = d1;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d1)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (filterTip2.Any() && filterEtiketa2.Any() && filterHumKar2.Any() && !filterPosecenost2.Any())
             {
                 var d1 = filterEtiketa2.Intersect<Dogadjaj>(filterTip2);
                 var d2 = d1.Intersect<Dogadjaj>(filterHumKar2);
                 listView.ItemsSource = d2;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d2)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (filterTip2.Any() && filterEtiketa2.Any() && !filterHumKar2.Any() && filterPosecenost2.Any())
             {
                 var d1 = filterEtiketa2.Intersect<Dogadjaj>(filterTip2);
                 var d2 = d1.Intersect<Dogadjaj>(filterPosecenost2);
                 listView.ItemsSource = d2;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d2)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (filterTip2.Any() && !filterEtiketa2.Any() && filterHumKar2.Any() && filterPosecenost2.Any())
             {
                 var d1 = filterHumKar2.Intersect<Dogadjaj>(filterTip2);
                 var d2 = d1.Intersect<Dogadjaj>(filterPosecenost2);
                 listView.ItemsSource = d2;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d2)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (!filterTip2.Any() && filterEtiketa2.Any() && filterHumKar2.Any() && filterPosecenost2.Any())
             {
                 var d1 = filterHumKar2.Intersect<Dogadjaj>(filterEtiketa2);
                 var d2 = d1.Intersect<Dogadjaj>(filterPosecenost2);
                 listView.ItemsSource = d2;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d2)
+                {
+                    canvasCreated(d);
+                }
             }
             else if (filterTip2.Any() && filterEtiketa2.Any() && filterHumKar2.Any() && filterPosecenost2.Any())
             {
@@ -718,6 +830,13 @@ namespace HCI_projekat_2020
                 var d2 = d1.Intersect<Dogadjaj>(filterPosecenost2);
                 var d3 = d2.Intersect<Dogadjaj>(filterEtiketa2);
                 listView.ItemsSource = d3;
+
+                canvas123.Children.Clear();
+
+                foreach (Dogadjaj d in d3)
+                {
+                    canvasCreated(d);
+                }
             }
         }
 
