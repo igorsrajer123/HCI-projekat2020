@@ -167,6 +167,7 @@ namespace HCI_projekat_2020
             comboTip.Text = "Odaberite...";
             comboEtikete.Text = "Odaberite...";
             etiketaTxt.Text = "Nijedna";
+            istOdrz.ItemsSource = null;
         }
 
         private void dodaj_Click(object sender, RoutedEventArgs e)
@@ -240,8 +241,36 @@ namespace HCI_projekat_2020
                             ikonica.Text = ikonaDog;
                         }
 
+                        DateTime datum1 = RandomDay();
+                        DateTime datum2 = RandomDay();
+                        DateTime datum3 = RandomDay();
+                        DateTime datum4 = RandomDay();
+                        List<String> ist = new List<string>();
+
+                        Random rnd = new Random();
+                        int broj = rnd.Next(2, 5);
+
+                        if(broj == 2)
+                        {
+                            ist.Add(datum1.ToString("MMM/dd/yyyy"));
+                            ist.Add(datum2.ToString("MMM/dd/yyyy"));
+                        }
+                        else if(broj == 3)
+                        {
+                            ist.Add(datum1.ToString("MMM/dd/yyyy"));
+                            ist.Add(datum2.ToString("MMM/dd/yyyy"));
+                            ist.Add(datum3.ToString("MMM/dd/yyy"));
+                        }
+                        else if(broj == 4)
+                        {
+                            ist.Add(datum1.ToString("MMM/dd/yyyy"));
+                            ist.Add(datum2.ToString("MMM/dd/yyyy"));
+                            ist.Add(datum3.ToString("MMM/dd/yyyy"));
+                            ist.Add(datum4.ToString("MMM/dd/yyyy"));
+                        }
+
                         //instanciranje novog dogadjaja
-                        Dogadjaj d = new Dogadjaj(oznakaDog, nazivDog, opisDog, tipDog, etiketaDog, posecenostDog, humKar, ikonaDog, troskoviDog, drzavaDog, gradDog, datDog);
+                        Dogadjaj d = new Dogadjaj(oznakaDog, nazivDog, opisDog, tipDog, etiketaDog, posecenostDog, humKar, ikonaDog, troskoviDog, drzavaDog, gradDog, datDog, ist);
                         listaDogadjaja.Add(d);
                         MainWindow.listaDog.Add(d);
 
@@ -267,6 +296,7 @@ namespace HCI_projekat_2020
                         dataGrid.Columns[9].Header = "Humanitarnog karaktera";
                         dataGrid.Columns[10].Header = "Ikonica";
                         dataGrid.Columns[11].Header = "Datum održavanja";
+                        dataGrid.Columns[12].Header = "Istorija održavanja";
                         clearAll();
                         stream.Close();
                     }
@@ -308,6 +338,7 @@ namespace HCI_projekat_2020
             dataGrid.Columns[9].Header = "Humanitarnog karaktera";
             dataGrid.Columns[10].Header = "Ikonica";
             dataGrid.Columns[11].Header = "Datum održavanja";
+            dataGrid.Columns[12].Header = "Istorija održavanja";
 
             FileStream stream = new FileStream("data1.bin", FileMode.OpenOrCreate, FileAccess.Write);
             BinaryFormatter bin = new BinaryFormatter();
@@ -440,6 +471,7 @@ namespace HCI_projekat_2020
                 datum.Text = row.datum_odrzavanja;
                 ikonica.Text = row.ikonica;
                 image1.Source = new BitmapImage(new Uri(ikonica.Text));
+                istOdrz.ItemsSource = row.istorija_odrzavanja;
 
                 if (row.humanitarnog_karaktera == "Da")
                 {
@@ -510,6 +542,7 @@ namespace HCI_projekat_2020
             comboTip.Text = "Odaberite...";
             comboEtikete.Text = "Odaberite...";
             etiketaTxt.Text = "Nijedna";
+            istOdrz.ItemsSource = null;
         }
 
         private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -539,6 +572,14 @@ namespace HCI_projekat_2020
             BinaryFormatter bin = new BinaryFormatter();
             bin.Serialize(stream, listaDogadjaja);
             stream.Close();
+        }
+
+        private Random gen = new Random();
+        DateTime RandomDay()
+        {
+            DateTime start = new DateTime(1995, 1, 1);
+            int range = (DateTime.Today - start).Days;
+            return start.AddDays(gen.Next(range));
         }
     }
 }

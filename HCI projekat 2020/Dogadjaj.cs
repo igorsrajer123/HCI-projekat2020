@@ -22,10 +22,12 @@ namespace HCI_projekat_2020
         public string humanitarnog_karaktera { get; set; }
         public string ikonica { get; set; }
         public string datum_odrzavanja { get; set; }
+        public List<String> istorija_odrzavanja { get; set; }
+
         public double X { get; set; }
         public double Y { get; set; }
         
-        public Dogadjaj(string ozn, string naz, string op, string tip, string etiketa, string pos, string hum, string ik, string tros, string drz, string gr, string dat)
+        public Dogadjaj(string ozn, string naz, string op, string tip, string etiketa, string pos, string hum, string ik, string tros, string drz, string gr, string dat, List<String> ist)
         {
             this.oznaka = ozn;
             this.naziv = naz;
@@ -39,7 +41,7 @@ namespace HCI_projekat_2020
             this.grad = gr;
             this.datum_odrzavanja = dat;
             this.etiketa = etiketa;
-            //this.istorija_odrzavanja = ist;
+            this.istorija_odrzavanja = ist;
         }
 
         public Dogadjaj()

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:HCI_projekat_2020"
         xmlns:valid="clr-namespace:HCI_projekat_2020.Validacija"
         xmlns:help="clr-namespace:HCI_projekat_2020.Help"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen"
@@ -26,8 +27,8 @@
         <Label Content="Posećenost:" Height="23" HorizontalAlignment="Left" Margin="246,87,0,0" Name="label9" VerticalAlignment="Top" Width="74" FontStyle="Italic" />
         <Label Content="Opis:" Height="28" HorizontalAlignment="Left" Margin="16,271,0,0" Name="label11" VerticalAlignment="Top" />
         <Label Content="Etikete:" FontStyle="Italic" FontWeight="Normal" Height="24" HorizontalAlignment="Left" Margin="16,233,0,0" Name="label12" VerticalAlignment="Top" Width="56" />
-        <Label x:Name="label" Content="Država:" HorizontalAlignment="Left" Margin="16,121,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label13" Content="Grad:" HorizontalAlignment="Left" Margin="16,158,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Država:" HorizontalAlignment="Left" Margin="16,121,0,0" FontStyle="Italic" VerticalAlignment="Top"/>
+        <Label x:Name="label13" Content="Grad:" HorizontalAlignment="Left" Margin="16,158,0,0" FontStyle="Italic" VerticalAlignment="Top"/>
         <Label Content="Naziv: " Height="28" HorizontalAlignment="Left" Margin="16,85,0,0" x:Name="label1_Copy" VerticalAlignment="Top" FontStyle="Italic" />
 
         <TextBox  Height="20" HorizontalAlignment="Left" GotFocus="oznaka_GotFocus" Margin="82,55,0,0" Name="oznakaTxt" VerticalAlignment="Top" Width="133">
@@ -148,7 +149,7 @@
         <RadioButton Content="Da" Height="16" HorizontalAlignment="Left" Margin="483,303,0,0" Name="radioButton1" VerticalAlignment="Top" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" />
         <RadioButton Content="Ne" Height="16" HorizontalAlignment="Left" Margin="544,303,0,0" Name="radioButton2" VerticalAlignment="Top" FontStyle="Italic" />
 
-        <DatePicker Name="datum" Text="Odaberite datum" VerticalAlignment="Stretch" FirstDayOfWeek="Monday" IsHitTestVisible="True" Margin="371,125,184,423" RenderTransformOrigin="0.5,0.412">
+        <DatePicker Name="datum" Text="Odaberite datum" VerticalAlignment="Stretch" FirstDayOfWeek="Monday" IsHitTestVisible="True" Margin="371,125,184,423"  DisplayDateStart="{x:Static sys:DateTime.Today}" RenderTransformOrigin="0.5,0.412">
             <DatePicker.Resources>
                 <Style TargetType="DatePickerTextBox">
                     <Setter Property="IsReadOnly" Value="True"/>
@@ -181,6 +182,7 @@
                 <DataGridTextColumn Header="Humanitarnog karaktera" Binding="{Binding humanitarnog_karaktera}"/>
                 <DataGridTextColumn Header="Ikonica" Binding="{Binding ikonica}"/>
                 <DataGridTextColumn Header="Datum održavanja" Binding="{Binding datum_odrzavanja}"/>
+                <DataGridTextColumn Header="Istorija održavanja" Binding="{Binding istorija_odrzavanja}"/>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -193,5 +195,7 @@
             </Button.Background>
         </Button>
 
+        <Label Margin="246,175,331,372" FontStyle="Italic"> Istorija održavanja:</Label>
+        <ListView x:Name="istOdrz" ItemsSource = "{Binding listaDog.istorija_odrzavanja, UpdateSourceTrigger=PropertyChanged}" Margin="371,175,184,360"></ListView>
     </Grid>
 </Window>
